@@ -1,0 +1,59 @@
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        var number1 = 0;
+        var number2 = 0;
+        var number3 = 0;
+        do {
+            number1 = prompt("enter the 1st number"
+                , "");
+        } while (!parseInt(number1));
+        do {
+            number2 = prompt("enter the 2nd number"
+                , "");
+        } while (!parseInt(number2));
+
+        do {
+            number3 = prompt("enter the 3nd number"
+                , "");
+        } while (!parseInt(number3));
+
+
+        document.write(" <p> 1st number is :" + number1 + " </p>");
+
+        document.write("<p> 2nd number is :" + number2 + " </p>");
+
+        document.write("<p> 3nd number is :" + number3 + "</p>");
+
+        document.write("<p> max number is :" + max(number1,number2,number3) + "</p>");
+      
+        document.write("<p> min number is :" + min(number1,number2,number3) + "</p>");
+
+
+        function max() {
+            var max= arguments[0];
+            for (i = 0; i < arguments.length; i++) {
+                if(arguments[i] > max){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        function min() {
+            var min= arguments[0];
+            for (i = 0; i < arguments.length; i++) {
+                if(arguments[i] < min){
+                    min = arguments[i];
+                }
+            }
+            return min;
+        }
+
+    </script>
+
+</body>
+
+</html>

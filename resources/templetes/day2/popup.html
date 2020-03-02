@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    
+
+    <div hidden="true" id="bullet">
+        <h3>Bullet list</h3>
+        <ol style="list-style-type:disc;">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol> 
+    </div>
+    <div hidden="true" id="numbered">
+        <h3>numbered list</h3>
+        <ol type="1">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol> 
+    </div>
+    <div hidden="true" id="lettered">
+        <h3>lettered list</h3>
+        <ol type="A">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol> 
+    </div>
+    <script>
+        var number = prompt("enter number" + '\n' +
+            " 1-Bullet " + '\n' +
+            " 2-Numbered " + '\n' +
+            " 3-lettered " + '\n'
+            , "");
+        switch (number) {
+            case "1":
+                console.log("Bullet");
+                document.getElementById('bullet').style.display = 'block';
+                break;
+            case "2":
+                console.log("Numbered");
+                document.getElementById('numbered').style.display = 'block';
+                break;
+            case "3":
+                console.log("lettered");
+                document.getElementById('lettered').style.display = 'block';
+                break;
+            default:
+                alert("not a valid number");
+                break;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

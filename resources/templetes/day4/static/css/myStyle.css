@@ -1,0 +1,38 @@
+body {
+  background-color: #ffffff;
+}
+
+img{
+  	width:100%;
+}
+div.card {
+  width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+div.name {
+  padding: 10px;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #272343;
+/*#bae8e8
+#e3f6f5
+#ffffff
+#272343*/
+
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: #272343;
+
+}

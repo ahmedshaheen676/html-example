@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>number game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/AdminLTE.css">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="register-box">
+
+        <div class="register-box-body">
+            <div>
+                <label> Number = </label>
+                <span id="num"></span>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary col-lg-6" onclick="startGame()"> start Game</button>
+                <button class="btn btn-danger col-lg-6" onclick="stopGame()"> stop Game</button>
+            </div>
+            <div>
+                <label> score =</label>
+                <span id="score"></span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+        var score = 0;
+        function startGame() {
+            start = setInterval(playGame, 2000);
+        }
+        function playGame() {
+            num = Math.floor(Math.random() * 10);
+            document.getElementById("num").innerHTML = num;
+        }
+        function stopGame() {
+            score = 0;
+            num = 0;
+            document.getElementById("score").innerHTML = score;
+            document.getElementById("num").innerHTML = num;
+
+            clearInterval(start)
+        }
+        document.addEventListener("keyup", (e) => {
+            if (e.key == num) {
+                score += 1;
+                document.getElementById("score").innerHTML = score;
+            }
+        });
+    </script>
+</body>
+
+</html>

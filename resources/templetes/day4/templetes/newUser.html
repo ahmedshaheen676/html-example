@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/AdminLTE.css">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="@{/}">
+                <b>welcome to my website
+                </b>
+            </a>
+        </div>
+
+        <div class="register-box-body">
+            <p class="login-box-msg">regiter a new user to login </p>
+            <form method="post">
+
+
+                <div class="form-group has-feedback">
+                    <input class="form-control " id="phone" name="phone" onkeyup="validatPhone()"
+                        oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('please enter a valid phone')"
+                        placeholder="phone" required type="text">
+                    <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                </div>
+                <span style="color: red;" id="errorPhone"></span>
+
+                <hr>
+
+
+                <div class="form-group has-feedback">
+                    <input class="form-control" id="email" name="email" onkeyup="validateEmail()" placeholder="email">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <span style="color: red;" id="errorMail"></span>
+                <div class="form-group has-feedback">
+                    <input class="form-control" id="creditCard" name="creditCard" onkeyup="validatCardnumber()"
+                        oninput="setCustomValidity('')"
+                        oninvalid="this.setCustomValidity('please enter a valid credit card number')"
+                        placeholder="credit card number" required type="number">
+                    <span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
+                </div>
+                <span style="color: red;" id="errorCardNumber"></span>
+
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button class="btn btn-primary btn-block btn-flat" id="submitBtn" type="submit">
+                            Next
+                        </button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+            </form>
+            <hr>
+
+            <a class="text-center" href="login.html">i have an account </a>
+        </div>
+        <!-- /.form-box -->
+    </div>
+
+    <script>
+        function validateEmail() {
+            var pattern = /^[^@]+@[^@]+\.[^@]+$/
+            var email = document.getElementById("email").value;
+            console.log(email);
+            var test = pattern.test(email);
+            var message = ""
+            if (!test) {
+                var message = "please enter a valid email";
+            }
+            document.getElementById("errorMail").innerHTML = message;
+        }
+        function validatPhone() {
+            var pattern = /^(?:\+?2)?01[0-9]{9}$/
+            var phone = document.getElementById("phone").value;
+            console.log(phone);
+            var test = pattern.test(phone);
+            var message = ""
+            if (!test) {
+                var message = "please enter a valid phone";
+            }
+            document.getElementById("errorPhone").innerHTML = message;
+
+        }
+        function validatCardnumber() {
+            var cardno = document.getElementById("creditCard").value;
+
+            var visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+            var mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
+            var amexpRegEx = /^(?:3[47][0-9]{13})$/;
+            var discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+            var isValid = false;
+
+            if (visaRegEx.test(cardno)) {
+                isValid = true;
+            } else if (mastercardRegEx.test(cardno)) {
+                isValid = true;
+            } else if (amexpRegEx.test(cardno)) {
+                isValid = true;
+            } else if (discovRegEx.test(cardno)) {
+                isValid = true;
+            }
+            var message = ""
+            if (!isValid) {
+                message = "please enter a valid phone";
+            }             
+            document.getElementById("errorCardNumber").innerHTML = message;
+
+        }
+
+    </script>
+</body>
+
+</html>
