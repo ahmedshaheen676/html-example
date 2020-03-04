@@ -18,7 +18,7 @@
 
     <div class="register-box-body">
         <p class="login-box-msg">regiter a new user to login </p>
-        <form method="post" action="myCv.html">
+        <form method="post" onsubmit="showData()">
             <div class="form-group has-feedback">
                 <input class="form-control"
                        id="firstName"
@@ -121,5 +121,27 @@
     </div>
     <!-- /.form-box -->
 </div>
+<script>
+    function showData(){
+    firstName =document.getElementById("firstName").value;
+    lastName =document.getElementById("lastName").value;
+    phone =document.getElementById("phone").value;
+    email =document.getElementById("email").value;
+    var myWindow = window.open("", "data view", "width=200,height=100");
+    myWindow.document.write(
+        "<p>"+
+            firstName +
+        "</p>"+
+        "<p>"
+        +lastName
+        +"</p>"
+        +"<p>"
+        +phone
+        +"</p>"
+        +"<p>"
+        +email
+        +"</p>");
+    }
+</script>
 </body>
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/AdminLTE.css">
+</head>
+<body class="hold-transition login-page" onload="showCookie()">
+<div class="login-box">
+    <div class="login-logo">
+        <a href=""><b> welcome to our website </b></a>
+    </div>
+    <div class="login-box-body">
+        <p class="login-box-msg">
+            <b>
+                please login in
+            </b>
+        </p>
+
+        <form class="form-signin" onsubmit="storeCookie()">
+            <div class="form-group has-feedback">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <input autofocus="autofocus"
+                       class="form-control text-center"
+                       id="username"
+                       name="username"
+                       placeholder="user name"
+                       required="required"
+                       type="text">
+
+            </div>
+
+            <div class="form-group has-feedback">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <input class="form-control text-center" id="password"
+                       name="password"
+                       placeholder="password"
+                       required="required"
+                       type="password">
+
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck" onchange="saveCookie()">
+                <label class="custom-control-label" for="customCheck" >remember me</label>
+            </div>
+
+            <div class="row">
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button class="btn btn-primary btn-block btn-flat" type="submit">login</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+        <hr>
+    </div>
+</div>
+<script>
+    var save = false ;
+    function saveCookie() {
+      var checkButton =  document.getElementById("customCheck");
+        save =  checkButton.checked
+
+    }
+    function storeCookie() {
+        if(save){
+         var username =   document.getElementById("username").value;
+         var password =   document.getElementById("password").value;
+            setCookie("username",username,1);
+            setCookie("password",password,1);
+        }else{
+            setCookie("username",username,-24);
+            setCookie("password",password,-24);
+        }
+    }
+    function showCookie() {
+        var username =   getCookie("username");
+        var password =  getCookie("password");
+        console.log(username);
+        document.getElementById("username").value =username;
+        console.log(password);
+        document.getElementById("password").value =password;
+        // alert(username);
+        // alert(password);
+    }
+    function setCookie(cname, cvalue, exdays) {
+        // alert(cvalue);
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
+</body>
+</html>
