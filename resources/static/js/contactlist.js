@@ -60,7 +60,7 @@ function showContactCell() {
                 imgSrc = "female.png";
             }
             var cell = "<tr id='" + contact.id + "'><td><img width='20px' height='20px' src='" + imgSrc + "'/></td><h2>" + contact.name + "</h2><td></td>"
-                    + "<td><a  href='tel:" + contact.phone + "' data-icon='phone' data-role='button'>" + contact.phone + "</a></td></tr> ";
+                + "<td><a  href='tel:" + contact.phone + "' data-icon='phone' data-role='button'>" + contact.phone + "</a></td></tr> ";
             $("#movie-table").append(cell);
         });
     }
@@ -71,5 +71,8 @@ $(document).ready(() => {
 
         showContactCell();
     });
+    $("#del").bind("click", (e) => {
+        
+    })
 
 });

@@ -5,64 +5,80 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../static/css/jquery.mobile-1.4.5.css.css" rel="stylesheet" type="text/css"/>
-        <style>
-            #movie-table tr{
-                width: 100%;
-            }
-            #movie-table tr td{
-                width: 33%;
-            }
-        </style>
-    </head>
-    <body>
-        <section data-role="page" id="firstPage">
-            <header data-role="header">
-                <a type="button" id="add" data-icon="plus"  > Add</a>
-                <h1>Contact List</h1>
-            </header> 
-            <article data-role="content">
-                <form>
-                        <input id="filterTable-input" data-type="search">
-                </form>
-                <table data-role="table" border="0" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../static/css/jquery.mobile-1.4.5.css.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #movie-table tr {
+            width: 100%;
+        }
 
-                </table>
+        #movie-table tr td {
+            width: 33%;
+        }
+    </style>
+</head>
+<body>
+<section data-role="page" id="firstPage">
+    <header data-role="header">
+        <a type="button" id="add" data-icon="plus"> Add</a>
+        <h1>Contact List</h1>
+    </header>
+    <article data-role="content">
+        <form>
+                <input id="filterTable-input" data-type="search">
+        </form>
+        <table data-role="table" border="0" id="movie-table" data-filter="true" data-input="#filterTable-input"
+               class="ui-responsive">
 
-            </article>
-            <footer  data-role="footer">
-                <h1>Contact List</h1>
-            </footer>
-        </section>
-        <section data-role="page" id="secondPage">
-            <header data-role="header">
-                <a  data-icon="arrow-l" type=-"button" data-rel="back" > Back</a>
-                <h1>Contact List</h1>
-            </header> 
-            <article data-role="content">
-                <form>
-                    <label>Name : </label>
-                    <input type="text" />
-                    <label>phone : </label>
-                    <input type="tel" />
-                    <label>email : </label>
-                    <input type="email" />
-                    <label>Gender : </label>
-                    <input type="tel" />
-                </form>
-            </article>
-            <footer data-role="footer">
-                <h1>Contact List</h1>
-            </footer>
-        </section>
-        <script src="../../static/js/jquery-1.11.1.js" type="text/javascript"></script>
-        <script src="../../static/js/contactlist.js" type="text/javascript"></script>
-        <script src="../../static/js/jquery.mobile-1.4.5.min.js.js" type="text/javascript"></script>
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    </body>
+        </table>
+
+    </article>
+    <footer data-role="footer">
+        <h1>Contact List</h1>
+    </footer>
+</section>
+<section data-role="page" id="secondPage">
+    <header data-role="header">
+        <a data-icon="arrow-l" type=-"button" data-rel="back"> Back</a>
+        <h1>Contact List</h1>
+    </header>
+    <article data-role="content">
+        <form>
+            <label>Name : </label>
+            <input type="text"/>
+            <label>phone : </label>
+            <input type="tel"/>
+            <label>email : </label>
+            <input type="email"/>
+            <label>Gender : </label>
+            <input type="tel"/>
+        </form>
+    </article>
+    <footer data-role="footer">
+        <h1>Contact List</h1>
+    </footer>
+</section>
+<section data-role="dialog" id="confirm">
+    <header data-role="header">
+        <p>Are you sure</p>
+    </header>
+    <article data-role="content">
+        <input hidden name="id">
+        <p id="confirm-contact-name"></p>
+    </article>
+    <footer>
+        <a data-icon="delete" type=-"button" id="del">Delete</a>
+        <a data-icon="arrow-l" type=-"button" data-rel="back"> Cancel</a>
+    </footer>
+</section>
+
+<script src="../../static/js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="../../static/js/contactlist.js" type="text/javascript"></script>
+<script src="../../static/js/jquery.mobile-1.4.5.min.js.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</body>
 </html>
