@@ -46,3 +46,30 @@ function del(id) {
 function getAll() {
     return JSON.parse(localStorage.getItem("contacts") || "[]");
 }
+
+
+function showContactCell() {
+    // $("#movie-table")
+    var contacts = getAll();
+    if (contacts.length > 0) {
+        contacts.forEach((contact) => {
+            var imgSrc = "";
+            if (contact.gender == "male") {
+                imgSrc = "male.png";
+            } else {
+                imgSrc = "female.png";
+            }
+            var cell = "<tr id='" + contact.id + "'><td><img width='20px' height='20px' src='" + imgSrc + "'/></td><h2>" + contact.name + "</h2><td></td>"
+                    + "<td><a  href='tel:" + contact.phone + "' data-icon='phone' data-role='button'>" + contact.phone + "</a></td></tr> ";
+            $("#movie-table").append(cell);
+        });
+    }
+}
+
+$(document).ready(() => {
+    $("#add").bind("click", (e) => {
+
+        showContactCell();
+    });
+
+});
