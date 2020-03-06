@@ -11,144 +11,79 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../../static/css/jquery.mobile-1.4.5.css.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <style>
-            #movie-table tr{
-                width: 100%;
-            }
-            #movie-table tr td{
-                width: 33%;
-            }
-            span{
-                color: red;
-            }
-            #contactProfile {
-                display: inline-block;
-                width: 100%;
-                margin-top: 30px;
-            }
-            h1{
-                font-weight: bold;
-            }
-            #contactProfile a{
-                display: inline;
-                padding: 5px 30px;
-                font-size: 25px;
-            }
-            #call{
-                background: #36e34b;
-            }
-            #delete{
-                background: red;
-            }
-            header,footer{
-                height: 50px;
-                background: #198b97 !important;
-                color: white !important;
-                font-size: 20px !important;
-                text-shadow: none !important;
+        <link href="../../static/css/contactStyle.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <section data-role="page" id="firstPage">
+            <header data-role="header">
+                <a type="button" id="add" data-icon="plus"  href="#secondPage"> Add</a>
+                <h1>Contact List</h1>
+            </header> 
+            <article data-role="content">
+                <form>
+                        <input id="filterList-input" data-type="search">
+                </form>
+                <ul data-role="table" border="0" id="contact-List" data-filter="true" data-input="#filterList-input" class="ui-responsive">
 
-            }
-            article{
-                margin-top: 30px;
-            }
-            input{
-                height: 40px;
-                margin-bottom: 10px;
-            }
-            footer{
-                bottom: 0px !important;
-                position: absolute !important;
-                width: 100% !important;
-            }
-            .ui-flipswitch{
-                height: 30px !important;
-            }
-            .ui-flipswitch .ui-flipswitch-off {
-                padding: 0px !important;
-                text-indent: 0px !important;
-                color: black !important;
-            }
-            .ui-flipswitch {
-                width: 6.5em !important;
-            }
-            .ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active{
-                background-color: #18a5b4 !important;
-                border-color: #198b97 !important;
-                    }
-                    label{
-                        font-weight: bold !important;
-                    }
-                </style>
-            </head>
-            <body>
-                <section data-role="page" id="firstPage">
-                    <header data-role="header">
-                        <a type="button" id="add" data-icon="plus"  href="#secondPage"> Add</a>
-                        <h1>Contact List</h1>
-                    </header> 
-                    <article data-role="content">
-                        <form>
-                                <input id="filterList-input" data-type="search">
-                        </form>
-                        <ul data-role="table" border="0" id="contact-List" data-filter="true" data-input="#filterList-input" class="ui-responsive">
+                </ul>
 
-                        </ul>
+            </article>
+            <footer  data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+        <section data-role="page" id="secondPage">
+            <header data-role="header">
+                <button  data-icon="arrow-l" type="button"  id="back"  > Back</button>
+                <h1>Contact List</h1>
+            </header> 
+            <article data-role="content">
+                <form>
+                    <div ><label for="name">Name : </label>
+                        <input id="name" name="name" type="text" onblur="validateName(this)"/>
 
-                    </article>
-                    <footer  data-role="footer">
-                        <h1>Contact List</h1>
-                    </footer>
-                </section>
-                <section data-role="page" id="secondPage">
-                    <header data-role="header">
-                        <a  data-icon="arrow-l" type=-"button" data-rel="back" id="back"> Back</a>
-                        <h1>Contact List</h1>
-                    </header> 
-                    <article data-role="content">
-                        <form>
-                            <div ><label for="name">Name : </label>
-                                <input id="name" name="name" type="text" onblur="validateName(this)"/>
+                        <span id="errorName"></span></div>
+                    <div> <label for="phone">phone : </label>
+                        <input id="phone" name="phone" type="number" onblur="validateMobile(this)" />
+                        <span id="errorphone" ></span>
+                    </div>
+                    <div> <label for="mail">email : </label>
+                        <input  id="mail" name="mail" type="email"  onblur="validateEmail(this)"/>
+                        <span id="errorMail"></span></div>
+                    <div id="gender"> <label for="flip-checkbox-1">Gender :</label>
+                           <input type="checkbox" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1" data-on-text="Male" data-off-text="Female"></div>
+                    <button id="save">Save<span ></span></button>
+                    <button id="cancel" style="display: none">Cancel</button>
+                    <a    id="cancelUpdate" style="display: none"  data-rel="back" data-role="button" > Cancel</a>
 
-                                <span id="errorName"></span></div>
-                            <div> <label for="phone">phone : </label>
-                                <input id="phone" name="phone" type="number" onblur="validateMobile(this)" />
-                                <span id="errorphone" ></span>
-                            </div>
-                            <div> <label for="mail">email : </label>
-                                <input  id="mail" name="mail" type="email"  onblur="validateEmail(this)"/>
-                                <span id="errorMail"></span></div>
-                            <div id="gender"> <label for="flip-checkbox-1">Gender :</label>
-                                   <input type="checkbox" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1" data-on-text="Male" data-off-text="Female"></div>
-                            <button id="save">Save</button><button id="cancel">Cancel</button>
-                        </form>
-                    </article>
-                    <footer data-role="footer">
-                        <h1>Contact List</h1>
-                    </footer>
-                </section>
-                <section data-role="page" id="thirdPage">
-                    <header data-role="header">
-                        <a  data-icon="arrow-l" type=-"button" data-rel="back" > Back</a>
-                        <h1 id="con-name"></h1>
-                    </header> 
-                    <article data-role="content" >
-                        <div><img id="genderImage" width="100px" height="100px"/></div>
-                        <div  id="contactProfile">
-                            <a id="delete"   data-icon='delete' data-role='button'> <span ></span></a>
-                            <a  id="edit" data-icon='edit' data-role='button'></a>
-                            <a  id="call"  data-icon='phone' data-role='button'></a>
-                        </div>
+                </form>
+            </article>
+            <footer data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
+        <section data-role="page" id="thirdPage">
+            <header data-role="header">
+                <a  data-icon="arrow-l" type="button" data-rel="back" > Back</a>
+                <h1 id="con-name"></h1>
+            </header> 
+            <article data-role="content" >
+                <div><img id="genderImage" width="100px" height="100px"/></div>
+                <div  id="contactProfile">
+                    <a id="delete"   data-icon='delete' data-role='button'> <span ></span></a>
+                    <a  id="edit" data-icon='edit' data-role='button' href="#secondPage" ><span ></span></a>
+                    <a  id="call"  data-icon='phone' data-role='button'></a>
+                </div>
 
-                    </article>
-                    <footer  data-role="footer">
-                        <h1>Contact List</h1>
-                    </footer>
-                </section>
-                <script src="../../static/js/jquery-1.11.1.js" type="text/javascript"></script>
-                <script src="../../static/js/contactlist.js" type="text/javascript"></script>
-                <script src="../../static/js/jquery.mobile-1.4.5.min.js.js" type="text/javascript"></script>
-                <!--        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-                        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+            </article>
+            <footer  data-role="footer">
+                <h1>Contact List</h1>
+            </footer>
+        </section>
 
-            </body>
-        </html>
+        <script src="../../static/js/jquery-1.11.1.js" type="text/javascript"></script>
+        <script src="../../static/js/contactlist.js" type="text/javascript"></script>
+        <script src="../../static/js/jquery.mobile-1.4.5.min.js.js" type="text/javascript"></script>
+
+    </body>
+</html>
