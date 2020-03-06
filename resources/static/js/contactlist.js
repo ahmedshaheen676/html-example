@@ -162,7 +162,7 @@ $(document).ready(() => {
         $("#back").css("display","block");
 
     });
-    $("#back").click(() => {
+    $(".back").click(() => {
         debugger;
         window.location.href = "../../templetes/day8/index.html";
 
