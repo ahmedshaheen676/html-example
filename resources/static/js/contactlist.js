@@ -13,19 +13,19 @@ function add() {
     var name = $("#name").val();
     var phone = $("#phone").val();
     var mail = $("#mail").val();
-    var index="";
+    var index = "";
     var gender = "";
     if ($("#gender .ui-flipswitch").hasClass("ui-flipswitch-active")) {
         gender = "Male";
     } else {
         gender = "Female";
     }
-    if (name.trim( ) !== "" && phone.trim( ) !== "" && $("#errorName").text() == "" && $("#errorMail").text() == "" && $("#errorphone").text() == "") {
+    if (name.trim() !== "" && phone.trim() !== "" && $("#errorName").text() == "" && $("#errorMail").text() == "" && $("#errorphone").text() == "") {
         $("#errorName").text("");
         $("#errorPhone").text("");
         if ($("#cancelUpdate").css("display") == "block") {
             //update Contact
-            var id = $("#save span").attr("id");
+            var id = $("#saveSpan").text();
             contacts.forEach((contact) => {
                 debugger;
                 if (contact.id == id) {
@@ -33,7 +33,7 @@ function add() {
                     var contactJson = new Contact(id, name, phone, mail, gender);
                     index = contacts.indexOf(contact);
                     contact = contactJson;
-                    contacts.splice( index, 1, contact );
+                    contacts.splice(index, 1, contact);
                 }
             });
             localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -50,6 +50,7 @@ function add() {
     }
 
 }
+
 function cleardata() {
     $("#name").val("");
     $("#phone").val("");
@@ -100,45 +101,45 @@ function showContactCell() {
                 imgSrc = "../../static/images/female.png";
             }
             var cell = "<li  style=' padding:5px ;    background:#ddf6f3;list-style: none;border: 1px solid #068c93;' >"
-                    + "<a href='#thirdPage' id='" + contact.id + "' onclick='openContact(this)'>"
-                    + "<div style='display:inline-block;width:10%'><img width='40px' height='40px' style='    vertical-align: unset;' src='" + imgSrc + "'/></div>"
-                    + "<div style='display:inline-block;width:70%'>"
-                    + "<p style='font-weight:bold;font-size:20px;padding-left:8px;color:black'>" + contact.name + "</p></div>"
-                    + "<div style='display:inline-block;width:20%'>"
-                    + "<a style='background:#36e34b;padding: 22px 30px;margin:0px' href='tel:" + contact.phone + "' data-icon='phone' data-role='button' ></a></div>"
-                    + "</a></li> ";
+                + "<a href='#thirdPage' id='" + contact.id + "' onclick='openContact(this)'>"
+                + "<div style='display:inline-block;width:10%'><img width='40px' height='40px' style='    vertical-align: unset;' src='" + imgSrc + "'/></div>"
+                + "<div style='display:inline-block;width:70%'>"
+                + "<p style='font-weight:bold;font-size:20px;padding-left:8px;color:black'>" + contact.name + "</p></div>"
+                + "<div style='display:inline-block;width:20%'>"
+                + "<a style='background:#36e34b;padding: 22px 30px;margin:0px' href='tel:" + contact.phone + "' data-icon='phone' data-role='button' ></a></div>"
+                + "</a></li> ";
             $("#contact-List").append(cell);
         }
     }
 }
+
 function validateEmail(emailText) {
     debugger;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!emailText.value.match(mailformat))
-    {
+    if (!emailText.value.match(mailformat)) {
         $("#errorMail").text("invalid Email");
     } else {
         $("#errorMail").text("");
     }
 
 }
+
 function validateMobile(phonetext) {
     debugger;
     var phoneno = /^(01){1}\d{9}/;
-    if ((!phonetext.value.match(phoneno)))
-    {
+    if ((!phonetext.value.match(phoneno))) {
         $("#errorphone").text("invalid phone Number");
     } else {
         $("#errorphone").text("");
     }
 
 }
+
 function validateName(nametext) {
 
     debugger;
-    var name = /^[A-Za-z]+$/;
-    if ((!nametext.value.match(name)))
-    {
+    var name = /^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$/;
+    if ((!nametext.value.match(name))) {
         $("#errorName").text("invalid name");
     } else {
         $("#errorName").text("");
@@ -151,7 +152,7 @@ $(document).ready(() => {
     $("#save").bind("click", (e) => {
         debugger;
         add();
-       
+
 
     });
     $("#add").bind("click", (e) => {
@@ -159,7 +160,7 @@ $(document).ready(() => {
             $("#cancel").css("display", "block");
         }
         $("#cancelUpdate").css("display", "none");
-        $("#back").css("display","block");
+        $("#back").css("display", "block");
 
     });
     $(".back").click(() => {
@@ -174,17 +175,17 @@ $(document).ready(() => {
     });
     $("#delete").bind("click", (e) => {
         debugger;
-        var id = $("#delete span").attr("id");
+        var id = $("#delSpan").text();
         del(id);
         window.location.href = "../../templetes/day8/index.html";
     });
     $("#edit").bind("click", (e) => {
         debugger;
-        var contactId = $("#edit span").attr("id");
+        var contactId = $("#editSpan").text();
         var contacts = getAll();
         var contact;
         var imgSrc;
-        $("#back").css("display","none");
+        $("#back").css("display", "none");
         contacts.forEach(con => {
             debugger;
             if (contactId == con.id) {
@@ -206,11 +207,12 @@ $(document).ready(() => {
                     $("#cancel").css("display", "none");
                     $("#cancelUpdate").css("display", "block");
                 }
-                $("#save span").attr("id", contact.id);
+                $("#saveSpan").text(contact.id);
             }
         });
     });
 });
+
 function openContact(e) {
     debugger;
     var contactId = $(e).attr("id");
@@ -228,9 +230,9 @@ function openContact(e) {
             }
             $("#genderImage").attr("src", imgSrc);
             $("#con-name").text(contact.name);
-            $("#delete  span").attr("id", contact.id);
+            $("#delSpan").text(contact.id);
             $("#call").attr("href", "tel:" + contact.phone);
-            $("#edit span").attr("id", contact.id);
+            $("#editSpan").text(contact.id);
         }
     });
 
