@@ -57,12 +57,6 @@ function cleardata() {
     $("#mail").val("");
 }
 
-function update(contacts) {
-    debugger;
-
-
-}
-
 function del(id) {
     debugger;
     var contacts = getAll();
@@ -90,17 +84,15 @@ function showContactCell() {
     var contacts = getAll();
     if (contacts.length > 0) {
         $("#contact-List").html("");
-        for (var i = 0; i < contacts.length; i++) {
-
+        contacts.forEach(contact => {
             debugger;
-            var contact = contacts[i];
             var imgSrc = "";
             if (contact.gender == "Male") {
                 imgSrc = "../../static/images/male.png";
             } else {
                 imgSrc = "../../static/images/female.png";
             }
-            var cell = "<li  style=' padding:5px ;    background:#ddf6f3;list-style: none;border: 1px solid #068c93;' >"
+            var cell = "<li class='list-item'>"
                 + "<a href='#thirdPage' id='" + contact.id + "' onclick='openContact(this)'>"
                 + "<div style='display:inline-block;width:10%'><img width='40px' height='40px' style='    vertical-align: unset;' src='" + imgSrc + "'/></div>"
                 + "<div style='display:inline-block;width:70%'>"
@@ -109,7 +101,7 @@ function showContactCell() {
                 + "<a style='background:#36e34b;padding: 22px 30px;margin:0px' href='tel:" + contact.phone + "' data-icon='phone' data-role='button' ></a></div>"
                 + "</a></li> ";
             $("#contact-List").append(cell);
-        }
+        });
     }
 }
 
@@ -216,24 +208,45 @@ $(document).ready(() => {
 function openContact(e) {
     debugger;
     var contactId = $(e).attr("id");
+
     var contacts = getAll();
     var contact;
     var imgSrc;
     contacts.forEach(con => {
         debugger;
+
+
         if (contactId == con.id) {
             contact = con;
-            if (contact.gender == "Male") {
-                imgSrc = "../../static/images/male.png";
-            } else {
-                imgSrc = "../../static/images/female.png";
-            }
-            $("#genderImage").attr("src", imgSrc);
-            $("#con-name").text(contact.name);
-            $("#delSpan").text(contact.id);
-            $("#call").attr("href", "tel:" + contact.phone);
-            $("#editSpan").text(contact.id);
+            showContactData(contact);
+            var currentContact = new Contact(contact.id, contact.name, contact.phone, contact.mail, contact.gender);
+            localStorage.setItem("currentContact", JSON.stringify(currentContact));
         }
     });
+
+}
+
+function showContactData(contact) {
+
+    if (contact.gender == "Male") {
+        imgSrc = "../../static/images/male.png";
+    } else {
+        imgSrc = "../../static/images/female.png";
+    }
+    $("#genderImage").attr("src", imgSrc);
+    $("#con-name").text(contact.name);
+    $("#delSpan").text(contact.id);
+    $("#call").attr("href", "tel:" + contact.phone);
+    $("#editSpan").text(contact.id);
+}
+
+function loadCurrent() {
+    debugger;
+    var currentContact = JSON.parse(localStorage.getItem("currentContact"));
+    console.log(currentContact);
+    if (currentContact != null && currentContact.id > 0) {
+        console.log(currentContact);
+        showContactData(currentContact);
+    }
 
 }

@@ -1,66 +1,90 @@
-       #movie-table tr{
-                width: 100%;
-            }
-            #movie-table tr td{
-                width: 33%;
-            }
-            span{
-                color: red;
-            }
-            #contactProfile {
-                display: inline-block;
-                width: 100%;
-                margin-top: 30px;
-            }
-            h1{
-                font-weight: bold;
-            }
-            #contactProfile a{
-                display: inline;
-                padding: 5px 30px;
-                font-size: 25px;
-            }
-            #call{
-                background: #36e34b;
-            }
-            #delete{
-                background: red;
-            }
-            header,footer{
-                height: 50px;
-                background: #198b97 !important;
-                color: white !important;
-                font-size: 20px !important;
-                text-shadow: none !important;
+#movie-table tr {
+    width: 100%;
+}
 
-            }
-            article{
-                margin-top: 30px;
-            }
-            input{
-                height: 40px;
-                margin-bottom: 10px;
-            }
-            footer{
-                bottom: 0px !important;
-                position: absolute !important;
-                width: 100% !important;
-            }
-            .ui-flipswitch{
-                height: 30px !important;
-            }
-            .ui-flipswitch .ui-flipswitch-off {
-                padding: 0px !important;
-                text-indent: 0px !important;
-                color: black !important;
-            }
-            .ui-flipswitch {
-                width: 6.5em !important;
-            }
-            .ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active{
-                background-color: #18a5b4 !important;
-                border-color: #198b97 !important;
-            }
-            label{
-                font-weight: bold !important;
-            }
+#movie-table tr td {
+    width: 33%;
+}
+
+span {
+    color: red;
+}
+
+#contactProfile {
+    display: inline-block;
+    width: 100%;
+    margin-top: 30px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+#contactProfile a {
+    display: inline;
+    padding: 5px 30px;
+    font-size: 25px;
+}
+
+#call {
+    background: #36e34b;
+}
+
+#delete {
+    background: red;
+}
+
+header, footer {
+    height: 50px;
+    background: #198b97 !important;
+    color: white !important;
+    font-size: 20px !important;
+    text-shadow: none !important;
+
+}
+
+article {
+    margin-top: 30px;
+}
+
+input {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+footer {
+    bottom: 0px !important;
+    position: absolute !important;
+    width: 100% !important;
+}
+
+.ui-flipswitch {
+    height: 30px !important;
+}
+
+.ui-flipswitch .ui-flipswitch-off {
+    padding: 0px !important;
+    text-indent: 0px !important;
+    color: black !important;
+}
+
+.ui-flipswitch {
+    width: 6.5em !important;
+}
+
+.ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active {
+    background-color: #18a5b4 !important;
+    border-color: #198b97 !important;
+}
+
+label {
+    font-weight: bold !important;
+}
+
+.list-item {
+    padding: 5px;
+    background: #ddf6f3;
+    list-style: none;
+    border: 1px solid #068c93;
+}
+
